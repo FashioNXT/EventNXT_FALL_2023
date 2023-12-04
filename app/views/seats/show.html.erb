@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<table style="width: 300px; border: 1px solid #ccc;margin-left:31%;margin-top:5%">
+  <tr style="background-color: #f2f2f2;">
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Category</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Total Count</th>
+  </tr>
+</table>
+
+<div style="display: flex; justify-content: center; align-items: center;margin-top:-50px">
+<%= render @seat %>
+
+<div style="display: flex;flex-direction: column;margin-right:100px">
+  <%# link_to "Edit this seat", edit_seat_path(@seat) %>
+  <%# link_to "Edit this seat", edit_event_seat_path(@event, seat) %>
+  <%= link_to "Edit this seat", edit_event_seat_path(@event, @seat), style: 'display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-bottom: 10px;margin-top:10px;margin-left:20px', class: 'button' %>
+  <%# link_to "Back to seats", seats_path %>
+  <%= link_to "Back to seats", event_seats_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-bottom:10px;margin-top:10px;margin-left:20px', class: 'button' %>
+
+  <%# button_to "Destroy this seat", @seat, method: :delete %>
+  <%# button_to "Destroy this seat", [@event, seat], method: :delete %>
+  <%= button_to "Destroy this seat", [@event, @seat], method: :delete, style: 'display: inline-block; padding: 10px 20px; background-color: #dc3545; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-top:10px;margin-left:20px', class: 'button' %>
+</div>
+</div>

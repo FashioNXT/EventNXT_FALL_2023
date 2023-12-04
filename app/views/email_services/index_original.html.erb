@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Email services</h1>
+
+<%= link_to "New email service", new_email_service_path %>
+
+<div id="email_services">
+  <% @email_services.each do |email_service| %>
+    <%= render email_service %>
+    <p>
+      <%= link_to "Show this email service", email_service %>
+    </p>
+  <% end %>
+</div>

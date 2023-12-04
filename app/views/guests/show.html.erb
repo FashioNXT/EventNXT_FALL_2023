@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @guest %>
+
+<div>
+  <%# link_to "Edit this guest", edit_guest_path(@guest) %>
+  <%= link_to "Edit this guest", edit_event_guest_path(@event, @guest) %> |
+  <%# link_to "Back to guests", guests_path %>
+  <%= link_to "Back to guests", event_guests_path(@event) %>
+
+  <%# button_to "Destroy this guest", @guest, method: :delete %>
+  <%= button_to "Destroy this guest", [@event, @guest], method: :delete %>
+</div>

@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Seats</h1>
+
+<div id="seats">
+  <% @seats.each do |seat| %>
+    <%= render seat %>
+    <p>
+      <%# link_to "Show this seat", seat %>
+      <%= link_to "Show this seat", [@event, seat] %>
+    </p>
+  <% end %>
+</div>
+
+<%# link_to "New seat", new_seat_path %>
+<%= link_to "New seat", new_event_seat_path(@event) %> |
+
+<%= link_to "Back to event", event_path(@event) %>

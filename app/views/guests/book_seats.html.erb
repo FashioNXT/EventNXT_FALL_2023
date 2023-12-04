@@ -1,0 +1,34 @@
+<!-- app/views/guests/book_seats.html.erb -->
+
+<h1>Book Seats</h1>
+
+<% if @guest %>
+  <h2>Guest Details</h2>
+  <p>Name: <%= @guest.first_name %> <%= @guest.last_name %></p>
+  <p>Email: <%= @guest.email %></p>
+  <p>Allocated Seats: <%= @guest.alloted_seats %></p>
+  <p>Committed Seats: <%= @guest.commited_seats %></p>
+
+
+  <%= form_for @guest, url: { action: :update_commited_seats } do |f| %>
+    <div class="field">
+      <%= f.label :commited_seats %>
+      <%= f.number_field :commited_seats %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Update Commited Seats' %>
+    </div>
+  <% end %>
+
+  <% flash.each do |key, value| %>
+    <div class="flash-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  
+
+<% else %>
+  <p>Invalid RSVP link</p>
+<% end %>
+

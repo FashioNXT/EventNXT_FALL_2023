@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @email_service %>
+
+<div>
+  <%= link_to "Edit this email service", edit_email_service_path(@email_service) %> |
+  <%= link_to "Back to email services", email_services_path %> |
+  <%= link_to "Send the email", send_email_email_service_path(@email_service),
+      method: :post, data: { "turbo-confirm": 'Are you sure?' } %>
+  
+  <%= button_to "Destroy this email service", @email_service, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+</div>

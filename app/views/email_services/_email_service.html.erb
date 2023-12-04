@@ -1,0 +1,34 @@
+<div id="<%= dom_id email_service %>">
+  <p>
+    <strong>To:</strong>
+    <%= email_service.to %>
+  </p>
+
+  <p>
+    <strong>Subject:</strong>
+    <%= email_service.subject %>
+  </p>
+  
+  
+  <!--===================-->
+  <!--to give more info about the emails-->
+  <p>
+    <strong>drafted at:</strong>
+    <%= email_service.created_at %> |
+    <strong>updated at:</strong>
+    <%= email_service.updated_at %> |
+    <strong>sent at:</strong>
+    <%= email_service.sent_at %> |
+    <strong>commited at:</strong>
+    <%= email_service.committed_at %> |
+    <strong>Event Name:</strong>
+    <%= email_service.event ? email_service.event.title : "No Event" %>
+  </p>
+  <!--===================-->
+  
+  
+  <p>
+    <strong>Body:</strong>
+    <%= email_service.body %>
+  </p>
+</div>

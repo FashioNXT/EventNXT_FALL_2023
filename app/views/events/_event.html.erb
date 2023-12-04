@@ -1,0 +1,53 @@
+<!--===================-->
+<!--event.last_modified is deleted since rails provide such information by default-->
+
+
+<div id="<%= dom_id event %>">
+  <p>
+    <strong>Title:</strong>
+    <%= event.title %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= event.address %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= event.description %>
+  </p>
+
+  <p>
+    <strong>Datetime:</strong>
+    <%= event.datetime %>
+  </p>
+
+
+  
+  <!--===================-->
+  <!--to add upload field-->
+  <p>
+    <strong>Event Avatar:</strong>
+    <%= event.event_avatar %>
+  </p>
+  <p>
+    <strong>Event Box Office:</strong>
+    <%= event.event_box_office %>
+  </p>
+  <!--===================-->
+  
+  
+  
+  <!--===================-->
+  <!--to give more info (these two come with every model)-->
+  <p>
+    <strong>Created at:</strong>
+    <%= event.created_at %>
+  </p>
+  <p>
+    <strong>Updated at:</strong>
+    <%= event.updated_at %>
+  </p>
+  <!--===================-->
+</div>

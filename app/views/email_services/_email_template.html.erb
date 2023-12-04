@@ -1,0 +1,60 @@
+<style>
+  .highlight-heading {
+    background-color: #333; /* or any other dark grey color you prefer */
+    color: #fff; /* text color for better visibility */
+  }
+
+  .small-body-container {
+    width: 800px; /* Set the width */
+    height: 100px; /* Maintain aspect ratio */
+    border: 1px solid #ccc;
+    overflow: auto; /* Add overflow to allow scrolling if content is larger */
+  }
+
+
+</style>
+
+<% if @errors.present? %>
+  <div class="alert alert-danger">
+    <p><%= @errors %></p>
+  </div>
+<% end %>
+
+
+<h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Email Templates Summary</h2>
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr class="highlight-heading">
+        <th>Template Name</th>
+        <th>Subject</th>
+        <th>Body</th>
+        <th>Update Template</th>
+        <th>Delete Template</th>
+      </tr>
+    </thead>
+    <% if @email_templates && !@email_templates.empty? %>
+      <tbody>
+        <% @email_templates.each do |email_template| %>
+          <tr>
+            <td><%= email_template[:name] %></td>
+            <td><%= email_template[:subject] %></td>
+            <td>
+              <div class="small-body-container">
+                <%= email_template[:body].html_safe %>
+              </div>
+            </td>
+            <td>
+              <%= link_to 'Edit', edit_email_template_path(email_template.id), style: 'display: inline-block; padding: 10px 10px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer', class: 'button' %>
+            </td>
+            <td>
+              <%= link_to 'Delete', destroy_email_template_path(email_template), method: :delete, style: 'display: inline-block; padding: 10px 10px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer', class: 'button' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to 'Add New Template', new_email_template_path, style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-left:25%;margin-bottom:30px', class: 'button' %>

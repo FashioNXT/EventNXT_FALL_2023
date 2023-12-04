@@ -1,0 +1,56 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container mt-5">
+  <h1 class="display-3 text-center animated slideInLeft mb-5">Manage Events</h1>
+  <!-- <img src="https://via.placeholder.com/300" class="img-fluid mt-4 animated slideInRight" alt="Placeholder Image"> -->
+  <div class="description mt-5  mb-5 animated slideInRight">
+    <p class="display-6">
+      Here you can easily create, view, edit, and delete your events, allowing you to keep track of all your event-related activities.
+    </p>
+  </div>
+</div>
+
+<div style="text-align: center;">
+  <%= link_to "Create New Event", new_event_path, class: "btn btn-primary", style: "margin-bottom: 20px; display: inline-block;" %>
+
+  <div id="events">
+    <% @events.each do |event| %>
+      <div class="event-box" onclick="window.location.href='<%= event_path(event) %>'">
+        <h2><%= event.title %></h2>
+        <p><strong>Date:</strong> <%= event.datetime %></p>
+        <p><strong>Description:</strong> <%= event.description %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<style>
+  .event-box {
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded borders */
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 400px; /* Set the desired width for event boxes */
+    display: inline-block; /* Display event boxes side by side */
+    transition: transform 0.3s ease; /* Smooth transition for transform property */
+  }
+
+ .event-box:hover {
+    background-color: #f5f5f5; /* Background color on hover */
+    transform: translateY(-5px); /* Move the box up by 5 pixels */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+ }
+
+  .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+</style>

@@ -1,0 +1,24 @@
+<h1>Edit Template</h1>
+
+<div class="form-box" style="width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
+<%= form_with(model: @email_template, url: { controller: "email_services", action: "update_email_template", id: @email_template }, method: :patch, local: true) do |f| %>
+    <div class="field" style="margin-top: 10px;">
+      <%= f.label :name, class: "form-label" %><br />
+      <%= f.text_field :name, autofocus: true, style: "color: black; font-family: 'Times New Roman', Times, serif;", value: @email_template.name %>
+    </div>
+
+    <div class="field" style="margin-top: 10px;">
+      <%= f.label :subject, class: "form-label" %><br />
+      <%= f.text_field :subject, autofocus: true, style: "color: black; font-family: 'Times New Roman', Times, serif;", value: @email_template.subject %>
+    </div>
+
+    <div class="field" style="margin-top: 10px;">
+      <%= f.label :body, class: "form-label" %><br />
+      <%= f.text_area :body, autofocus: true, style: "color: black; font-family: 'Times New Roman', Times, serif; width: 200px; height: 100px;", value: @email_template.body %>
+    </div>
+
+    <div class="details-container">
+      <%= f.submit "Update Template", class: "btn btn-primary rounded-3", style: "background-color: #f0f0f0; color: black; font-family: 'Times New Roman';" %>
+    </div>
+  <% end %>
+</div>
