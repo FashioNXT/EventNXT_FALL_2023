@@ -75,6 +75,10 @@ group :test do
   gem 'factory_bot_rails'
 end
 
+group :production do
+  gem "pg", "~> 1.4.3"
+end
+
 # to upload
 gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 
